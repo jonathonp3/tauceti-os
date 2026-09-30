@@ -26,6 +26,7 @@ install:
   - ffmpeg
   - gstreamer1-plugins-ugly
   - gstreamer1-libav
+ 
   # HandBrake-gui
   - mpv
   - steam
@@ -39,7 +40,7 @@ install:
   - libjxl-utils
   
   # PIA VPN
-  # sirius-os-pia-installer
+  - sirius-os-pia-installer
 
   # Virtualisation stack
   - sirius-os-virtualization
