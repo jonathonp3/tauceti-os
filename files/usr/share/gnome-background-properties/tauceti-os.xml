@@ -4,8 +4,8 @@
   <!-- 1. DYNAMIC ENTRY (Files 1 & 2) -->
   <wallpaper deleted="false">
     <name>Tauceti-OS Dynamic Geometrics</name>
-    <filename>/usr/share/backgrounds/tauceti-os-os/geometrics-l.jxl</filename>
-    <filename-dark>/usr/share/backgrounds/tauceti-os-os/geometrics-d.jxl</filename-dark>
+    <filename>/usr/share/backgrounds/tauceti-os/geometrics-l.jxl</filename>
+    <filename-dark>/usr/share/backgrounds/tauceti-os/geometrics-d.jxl</filename-dark>
     <options>zoom</options>
     <shade_type>solid</shade_type>
     <pcolor>#000000</pcolor>
@@ -15,7 +15,7 @@
   <!-- 2. Abstract Orange Blue Pink Wavy Shapes -->
   <wallpaper deleted="false">
     <name>Tauceti-OS Abstract Wavy Shapes</name>
-    <filename>/usr/share/backgrounds/tauceti-os-os/abstract-orange-blue-pink-wavy-shapes-wallpaper-2560x1440.webp</filename>
+    <filename>/usr/share/backgrounds/tauceti-os/abstract-orange-blue-pink-wavy-shapes-wallpaper-2560x1440.webp</filename>
     <options>zoom</options>
     <shade_type>solid</shade_type>
     <pcolor>#000000</pcolor>
@@ -25,7 +25,7 @@
   <!-- 3. Blue Wallpaper -->
   <wallpaper deleted="false">
     <name>Tauceti-OS Blue</name>
-    <filename>/usr/share/backgrounds/tauceti-os-os/blue-wallpaper-2560x1440.webp</filename>
+    <filename>/usr/share/backgrounds/tauceti-os/blue-wallpaper-2560x1440.webp</filename>
     <options>zoom</options>
     <shade_type>solid</shade_type>
     <pcolor>#000000</pcolor>
@@ -35,7 +35,7 @@
   <!-- 4. Dark Geometric Shards -->
   <wallpaper deleted="false">
     <name>Tauceti-OS Dark Geometric Shards</name>
-    <filename>/usr/share/backgrounds/tauceti-os-os/Dark-Geometric-Shards-2560x1440-lossless.webp</filename>
+    <filename>/usr/share/backgrounds/tauceti-os/Dark-Geometric-Shards-2560x1440-lossless.webp</filename>
     <options>zoom</options>
     <shade_type>solid</shade_type>
     <pcolor>#000000</pcolor>
@@ -45,7 +45,7 @@
   <!-- 5. F25 Lossless -->
   <wallpaper deleted="false">
     <name>Tauceti-OS F25 Lossless</name>
-    <filename>/usr/share/backgrounds/tauceti-os-os/f25-lossless.webp</filename>
+    <filename>/usr/share/backgrounds/tauceti-os/f25-lossless.webp</filename>
     <options>zoom</options>
     <shade_type>solid</shade_type>
     <pcolor>#000000</pcolor>
@@ -55,7 +55,7 @@
   <!-- 6. F36 Day Lossless -->
   <wallpaper deleted="false">
     <name>Tauceti-OS F36 Day Lossless</name>
-    <filename>/usr/share/backgrounds/tauceti-os-os/f36-day-lossless.webp</filename>
+    <filename>/usr/share/backgrounds/tauceti-os/f36-day-lossless.webp</filename>
     <options>zoom</options>
     <shade_type>solid</shade_type>
     <pcolor>#000000</pcolor>
