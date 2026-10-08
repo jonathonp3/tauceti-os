@@ -1,0 +1,75 @@
+# yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
+name: tauceti-os
+description: A declarative, high-performance Nix-style Fedora Atomic workstation.
+base-image: quay.io/fedora/fedora-silverblue
+image-version: 44
+
+modules:
+  # 1. Register the repositories
+  - from-file: ../modules/repositories.yml
+  
+  # 2.  Remove Firefox
+  # from-file: ../modules/remove-firefox.yml
+  
+  - from-file: ../modules/remove-bookmarks.yml
+  
+  # 3. Remove Toolbox
+  - from-file: ../modules/remove-toolbox.yml
+
+  # 4. Remove ffmpeg free codecs
+  - from-file: ../modules/remove-codecs.yml
+  
+  # 5. # Enable hardware acceleration for H.264/H.265/VC1 codecs (replaces mesa-va-drivers)
+  - from-file: ../modules/mesa-freeworld.yml
+
+  # 6. Install the software
+  - from-file: ../modules/packages.yml
+  
+  # 7. 
+  - type: files
+    files:
+      # --- Signing and verification ---
+      # Signature policy: rejects unverified images, requires sigstore
+      # signature from the tauceti-os key for ghcr.io/jonathonp3/tauceti-os
+      - source: usr/etc/containers/policy.json
+        destination: /usr/etc/containers/policy.json
+      # Cosign public key used to verify tauceti-os image signatures
+      - source: usr/etc/pki/containers/tauceti-os.pub
+        destination: /usr/etc/pki/containers/tauceti-os.pub
+      # Enables sigstore attachment lookup for ghcr.io/jonathonp3 so
+      # containers tooling knows where to find the .sig tags in the registry
+      - source: usr/etc/containers/registries.d/tauceti-os.yaml
+        destination: /usr/etc/containers/registries.d/tauceti-os.yaml
+      # At boot: replace /etc/containers/policy.json and /etc/pki/containers/tauceti-os.pub
+      # with the image versions above, so stale host copies can't shadow them
+      - source: usr/lib/tmpfiles.d/cosign-policy.conf
+        destination: /usr/lib/tmpfiles.d/cosign-policy.conf
+
+      # --- First-boot optimization ---
+      # Script that runs the first-boot tasks
+      - source: usr/libexec/tauceti-os-optimization.sh
+        destination: /usr/libexec/tauceti-os-optimization.sh
+      # Runs the optimization script once, then writes a marker to skip future boots
+      - source: usr/lib/systemd/system/tauceti-os-optimization.service
+        destination: /usr/lib/systemd/system/tauceti-os-optimization.service
+
+      # --- User and group setup ---
+      # Creates groups and assigns users
+      - source: usr/lib/sysusers.d/tauceti-os.conf
+        destination: /usr/lib/sysusers.d/tauceti-os.conf
+      
+      # Provisioning service which starts at first boot
+      - source: usr/lib/systemd/system/tauceti-os-provision.service
+        destination: /usr/lib/systemd/system/tauceti-os-provision.service
+      # Provisioning script which runs at first boot
+      - source: usr/libexec/tauceti-os-provision.sh
+        destination: /usr/libexec/tauceti-os-provision.sh  
+        
+  # 8. Install backgrounds
+  - from-file: ../modules/backgrounds.yml        
+
+  # 9. Run the assembly script
+  - type: script
+    scripts:
+      - setup-tauceti-os.sh
+      
